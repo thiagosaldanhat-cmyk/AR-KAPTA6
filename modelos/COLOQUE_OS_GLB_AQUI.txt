@@ -1,0 +1,1 @@
+Coloque nesta pasta os arquivos .glb conforme os nomes definidos em modelos.json.

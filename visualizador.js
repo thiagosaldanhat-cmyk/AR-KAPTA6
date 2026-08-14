@@ -1,0 +1,3 @@
+const q=new URLSearchParams(location.search),id=q.get('modelo')||'01-base-3d',viewer=document.querySelector('#model'),nameEl=document.querySelector('#name'),cat=document.querySelector('#category');
+const labels={'sem-esteiras':'Sem esteiras','esteira-90':'Esteira 90º','esteira-reta':'Esteira reta'};
+fetch('modelos.json').then(r=>r.json()).then(ms=>{let m=ms.find(x=>x.id===id);if(!m||!m.available)throw 0;nameEl.textContent=m.name;cat.textContent=labels[m.group]||m.group;document.title=m.name+' — KAPTA AR';viewer.src='modelos/'+m.file}).catch(()=>{nameEl.textContent='Modelo indisponível';cat.textContent='KAPTA AR'});
